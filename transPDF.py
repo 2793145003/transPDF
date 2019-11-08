@@ -49,7 +49,7 @@ def pdf_to_cn(pdf_file_path):
 
 def main():
     print("Downloading...")
-    url = "https://arxiv.org/pdf/1810.03243.pdf"
+    url = "pdf url"
     data = urllib.urlopen(url, cafile=certifi.where()).read()
     f = open("tmp.pdf", "wb")
     f.write(data)
