@@ -1,0 +1,3 @@
+requests
+pdfminer3k
+googletrans
