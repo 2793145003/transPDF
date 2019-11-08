@@ -31,3 +31,4 @@ PDF连接：https://arxiv.org/pdf/1810.03243.pdf
 ## 参考
 - PDF下载：https://blog.csdn.net/u012705410/article/details/47708031
 - PDF解析：https://segmentfault.com/a/1190000015686181
+- python谷歌翻译：https://www.jianshu.com/p/2f9a2b4c3aa3
