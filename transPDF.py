@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 import os
 import io
+import fitz
 import certifi
 import urllib.request as urllib
 from pdfminer.pdfinterp import PDFResourceManager
@@ -12,44 +13,35 @@ from docx import Document
 from googletrans import Translator
 def google_translate(content):
     translator = Translator()
-    return translator.translate(content, dest='zh-CN').text
+    try:
+        return translator.translate(content, dest='zh-CN').text
+    except:
+        try:
+            translator.translate("English", dest='zh-CN').text
+            print("Google is fine.")
+            return "Unknown."
+        except:
+            print("Google is down.")
+            return "Google down."
 
-def read_from_pdf(path):
-    with open(path, 'rb') as file:
-        resource_manager = PDFResourceManager()
-        return_str = io.StringIO()
-        lap_params = LAParams()
-
-        device = TextConverter(
-            resource_manager, return_str, laparams=lap_params)
-        process_pdf(resource_manager, device, file)
-        device.close()
-
-        content = return_str.getvalue()
-        return_str.close()
-        return content
-
-def remove_control_characters(content):
-    mpa = dict.fromkeys(range(32))
-    return content.translate(mpa)
-
-def save_text(content):
-    doc = open('result.txt','w')
-    for line in content.split('\n'):
-        line = remove_control_characters(line)
-        doc.write(line + "\n")
-        trans = remove_control_characters(google_translate(line))
-        doc.write(trans + "\n")
-    doc.close()
+def clear_txt(txt):
+    return txt.replace("-\n", "").replace("\n", " ")
 
 def pdf_to_cn(pdf_file_path):
-    content = read_from_pdf(pdf_file_path)
-    content = content.replace("-\n", "").replace(".\n", ".回车").replace("\n", " ").replace("回车", "\n").replace("ﬁ", "fi")
-    save_text(content)
+    result = open('result.txt','w')
+    doc = fitz.open(pdf_file_path)
+    for page in doc:
+        blocks = page.getText("blocks")
+        for txt in blocks:
+            line = clear_txt(txt[4])
+            result.write(line + "\n")
+            trans = google_translate(line)
+            result.write(trans + "\n")
+    result.close()
 
 def main():
     print("Downloading...")
-    url = "pdf url"
+    url = "https://www.ipol.im/pub/art/2012/gjmr-lsd/article.pdf"
     data = urllib.urlopen(url, cafile=certifi.where()).read()
     f = open("tmp.pdf", "wb")
     f.write(data)
