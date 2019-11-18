@@ -5,12 +5,8 @@ import io
 import fitz
 import certifi
 import urllib.request as urllib
-from pdfminer.pdfinterp import PDFResourceManager
-from pdfminer.pdfinterp import process_pdf
-from pdfminer.converter import TextConverter
-from pdfminer.layout import LAParams
-from docx import Document
 from googletrans import Translator
+
 def google_translate(content):
     translator = Translator()
     try:
