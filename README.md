@@ -4,7 +4,6 @@ pdf translate en -> cn
 ## 更新
 2019.11.18
 - PDF读取部分换成了PyMuPDF，真鸡儿好用。感觉我已经天下无敌了xxx
-- 不过Google的翻译服务好像挂了，一会再试试……
 - 本来想加个界面做成阅读器的，查了一下发现好麻烦。还是算了吧，能用就行了xx
 - 还有剪切板的翻译，做了一半觉得按复制键好麻烦，还不如直接全文翻译呢，反正也有原文xx
 
@@ -32,9 +31,9 @@ python transPDF.py
 
 ## 效果
 ![image](https://raw.githubusercontent.com/2793145003/transPDF/master/img/1.png)
-所用pdf为《Arc-support Line Segments Revisited: An Efficient High-quality Ellipse Detection》
+所用pdf为《How does the brain solve visual object recognition?》
 
-PDF连接：https://arxiv.org/pdf/1810.03243.pdf
+PDF连接：https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306444/pdf/nihms352068.pdf
 
 ## 参考
 - PDF下载：https://blog.csdn.net/u012705410/article/details/47708031

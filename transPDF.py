@@ -19,10 +19,8 @@ def google_translate(content):
         try:
             translator.translate("English", dest='zh-CN').text
             print("Google is fine.")
-            return "Unknown."
         except:
             print("Google is down.")
-            return "Google down."
 
 def clear_txt(txt):
     return txt.replace("-\n", "").replace("\n", " ")
