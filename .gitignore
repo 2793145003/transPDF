@@ -2,7 +2,6 @@
 .DS_Store
 *.pdf
 result.txt
-reader/
 mouse.*
 *.html
 word.py

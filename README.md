@@ -4,6 +4,7 @@ pdf translate en -> cn
 ## 更新
 2019.11.19
 - 换成google.cn翻译了，一是没有墙，二是翻译效果比之前的山寨包好太多了
+- 还是忍不住手贱写了阅读器，UI来源见参考，因为很懒没怎么改
 
 2019.11.18
 - PDF读取部分换成了PyMuPDF，真鸡儿好用。感觉我已经天下无敌了xxx
@@ -29,8 +30,14 @@ pip install -r requirements.txt
 ```
 python transPDF.py
 ```
+4. 阅读器
+```
+cd reader
+python __main__.py
+```
 
 ## 效果
+![image](https://raw.githubusercontent.com/2793145003/transPDF/master/img/2.png)
 ![image](https://raw.githubusercontent.com/2793145003/transPDF/master/img/1.png)
 所用pdf为《How does the brain solve visual object recognition?》
 
@@ -40,3 +47,4 @@ PDF连接：https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306444/pdf/nihms352068
 - PDF下载：https://blog.csdn.net/u012705410/article/details/47708031
 - PDF解析：https://segmentfault.com/a/1190000015686181
 - python谷歌翻译：https://www.jianshu.com/p/2f9a2b4c3aa3
+- python PDF 阅读器：https://github.com/xflywind/Python-Application
