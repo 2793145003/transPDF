@@ -5,18 +5,7 @@ import io
 import fitz
 import certifi
 import urllib.request as urllib
-from googletrans import Translator
-
-def google_translate(content):
-    translator = Translator()
-    try:
-        return translator.translate(content, dest='zh-CN').text
-    except:
-        try:
-            translator.translate("English", dest='zh-CN').text
-            print("Google is fine.")
-        except:
-            print("Google is down.")
+from translate import translate
 
 def clear_txt(txt):
     return txt.replace("-\n", "").replace("\n", " ")
@@ -29,13 +18,13 @@ def pdf_to_cn(pdf_file_path):
         for txt in blocks:
             line = clear_txt(txt[4])
             result.write(line + "\n")
-            trans = google_translate(line)
+            trans = translate(line)
             result.write(trans + "\n")
     result.close()
 
 def main():
     print("Downloading...")
-    url = "https://www.ipol.im/pub/art/2012/gjmr-lsd/article.pdf"
+    url = "pdf_url.pdf"
     data = urllib.urlopen(url, cafile=certifi.where()).read()
     f = open("tmp.pdf", "wb")
     f.write(data)

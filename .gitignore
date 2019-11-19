@@ -6,3 +6,5 @@ reader/
 mouse.*
 *.html
 word.py
+__pycache__/
+*.txt
