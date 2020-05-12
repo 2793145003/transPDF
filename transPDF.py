@@ -11,15 +11,17 @@ def clear_txt(txt):
     return txt.replace("-\n", "").replace("\n", " ")
 
 def pdf_to_cn(pdf_file_path):
-    result = open('result.txt','w')
+    result = open('result.html','w')
     doc = fitz.open(pdf_file_path)
     for page in doc:
-        blocks = page.getText("blocks")
-        for txt in blocks:
-            line = clear_txt(txt[4])
+        # blocks = page.getText("blocks")
+        # for txt in blocks:
+        #     line = clear_txt(txt[4])
+        #     result.write(line + "\n")
+        #     trans = translate(line)
+        #     result.write(trans + "\n")
+        for line in page.getText("xhtml").splitlines():
             result.write(line + "\n")
-            trans = translate(line)
-            result.write(trans + "\n")
     result.close()
 
 def main():
