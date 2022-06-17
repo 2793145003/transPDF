@@ -2,6 +2,10 @@
 pdf translate en -> cn
 
 ## 更新
+2022.6.17
+- 如果是arXiv上的论文，推荐直接将url中的`arXiv`改为`ar5iv`，然后右键翻译
+- ar5iv不支持的，可以尝试`https://www.arxiv-vanity.com/`
+
 2019.11.20
 - 经过各种尝试，发现效果最好的是使用PyMuPDF将PDF转换成xhtml，然后放到chrome浏览器里右键翻译……
 - 有配图有整段翻译，还要啥自行车xxx
